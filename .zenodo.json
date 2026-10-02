@@ -1,0 +1,26 @@
+{
+  "title": "estimator-crossover-hardware: Sim-to-Silicon test of the estimator crossover on real hardware",
+  "upload_type": "software",
+  "description": "<p>Firmware (ESP32, Arduino), analysis code and test protocol for testing on real hardware whether the estimator crossover found in simulation survives real sensor noise. A Kalman filter, an innovation-gated Kalman filter, a 2-mode IMM and a GRU estimator track a pendulum measured by a VL53L0X time-of-flight sensor, under proximity-coupled Gilbert-Elliott burst faults (inflated-variance, frozen and blended), physically caused faults, and real sensor lock-ups and latch-ups recovered by a protection circuit.</p><p><strong>Status: code complete; hardware validation pending.</strong> No measured results are included in this version.</p>",
+  "creators": [
+    {
+      "name": "Agarwal, Vaishvi"
+    }
+  ],
+  "license": "MIT",
+  "version": "0.1.0",
+  "keywords": [
+    "state estimation",
+    "Kalman filter",
+    "interacting multiple model",
+    "GRU",
+    "fault tolerance",
+    "Gilbert-Elliott model",
+    "burst faults",
+    "single-event effects",
+    "ESP32",
+    "VL53L0X"
+  ],
+  "related_identifiers": [],
+  "notes": "Data, figures and documentation (data/, results/, docs/) are licensed CC BY 4.0 (LICENSE-data); software is MIT. Add related identifiers once they have DOIs: the simulation paper (relation: isSupplementTo or references) and the companion repository sel-sefi-sensor-guard (relation: requires)."
+}
