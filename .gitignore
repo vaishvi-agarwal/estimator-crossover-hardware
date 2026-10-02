@@ -1,0 +1,25 @@
+# --- PlatformIO build output (recreated by `pio run`) ---
+.pio/
+.vscode/
+
+# --- Host C++ test binaries (recreated by `make test-host`) ---
+build/
+
+# --- Python ---
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# --- Generated intermediate files (recreated by the analysis scripts) ---
+data/processed/*
+!data/processed/.gitkeep
+
+# --- Synthetic demo data and demo output (recreated by analysis/demo/run_demo.py) ---
+# These are never real results, so they are not committed.
+analysis/demo/data/
+analysis/demo/output/
+
+# --- macOS / editors ---
+.DS_Store
+*.swp
