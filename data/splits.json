@@ -1,0 +1,39 @@
+{
+  "train": [],
+  "validation": [],
+  "test": [],
+  "seed": 20260101,
+  "per_block_counts": {
+    "B": {
+      "train": 0,
+      "validation": 0,
+      "test": 0
+    },
+    "C": {
+      "train": 0,
+      "validation": 0,
+      "test": 0
+    },
+    "D": {
+      "train": 0,
+      "validation": 0,
+      "test": 0
+    },
+    "E": {
+      "train": 0,
+      "validation": 0,
+      "test": 0
+    },
+    "F": {
+      "train": 0,
+      "validation": 0,
+      "test": 0
+    },
+    "G": {
+      "train": 0,
+      "validation": 0,
+      "test": 0
+    }
+  },
+  "rule": "append-only; whole sessions; ~60/20/20 inside each block B-G; Block A not split"
+}

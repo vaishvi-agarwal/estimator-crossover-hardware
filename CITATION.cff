@@ -1,0 +1,46 @@
+# Citation metadata (https://citation-file-format.github.io).
+# Update `version` and add `date-released` and `doi` when a release is archived on Zenodo.
+cff-version: 1.2.0
+message: "If you use this software or its data, please cite it as below."
+title: "estimator-crossover-hardware: Sim-to-Silicon test of the estimator crossover on real hardware"
+type: software
+authors:
+  - family-names: Agarwal
+    given-names: Vaishvi
+version: 0.1.0
+license: MIT
+# Placeholder: the repository has not been published yet. Fix the URL if it differs.
+repository-code: "https://github.com/vaishvi-agarwal/estimator-crossover-hardware"
+abstract: >-
+  Firmware (ESP32, Arduino), analysis code and test protocol for testing on
+  real hardware whether the estimator crossover found in simulation survives
+  real sensor noise: a Kalman filter, an innovation-gated Kalman filter, a
+  2-mode IMM and a GRU estimator track a pendulum measured by a VL53L0X
+  time-of-flight sensor, under proximity-coupled Gilbert-Elliott burst faults
+  (inflated-variance, frozen and blended), physically caused faults, and real
+  sensor lock-ups and latch-ups recovered by a protection circuit. Status:
+  code complete; hardware validation pending. No results are included yet.
+keywords:
+  - state estimation
+  - Kalman filter
+  - interacting multiple model
+  - GRU
+  - fault tolerance
+  - Gilbert-Elliott model
+  - burst faults
+  - single-event effects
+  - ESP32
+  - VL53L0X
+references:
+  - type: report
+    title: "Robust, Fault-Tolerant State Estimation for Autonomous Drones During Safety-Critical Operations"
+    authors:
+      - family-names: Agarwal
+        given-names: Vaishvi
+    notes: "CREST Gold research paper (the simulation study this repository tests). Add the DOI or URL when available."
+  - type: software
+    title: "sel-sefi-sensor-guard: a latch-up and lock-up guard protecting a COTS sensor from single-event effects"
+    authors:
+      - family-names: Agarwal
+        given-names: Vaishvi
+    notes: "Companion repository (Spec 2). Supplies the guard library (lib/sel_guard) and the measured GE parameters."

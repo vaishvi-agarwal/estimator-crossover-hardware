@@ -1,0 +1,13 @@
+{
+  "what": "Numbers from the published simulation paper, for comparison in figures and the README. Simulation values, not hardware results.",
+  "paper": "Robust, Fault-Tolerant State Estimation for Autonomous Drones During Safety-Critical Operations (Vaishvi Agarwal, CREST Gold)",
+  "paper_doi_or_link": null,
+  "units": "metres, 2D drone simulation at 10 Hz: compare rankings, not magnitudes, with this 1D pendulum",
+  "variance_bursts_burst_p95_m": {"imm": 0.63, "genie_bound": 0.60},
+  "frozen_bursts_burst_p95_m": {"gru": 0.77, "robust_kf_retuned": 1.11,
+    "note": "the re-tuned Robust KF was the best classical filter under frozen output"},
+  "kf_overconfidence": "more than an order of magnitude during bursts (NEES)",
+  "crossover_lambda": 0.81,
+  "crossover_bracket": {"classical_ahead_at": 0.75, "learned_ahead_at": 0.90},
+  "crossover_note": "lambda = 0: zero-mean inflated variance (kappa = 100); lambda = 1: nominal variance with a systematic bias"
+}
