@@ -1,0 +1,52 @@
+# Runs on every push and pull request:
+#   1. C++ host tests of the firmware logic (g++)
+#   2. Python tests (pytest), then the full synthetic demo as a smoke test
+#   3. Firmware build for the ESP32 (standard build and the Spec 2 guard build)
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  host-cpp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and run C++ host tests
+        run: make test-host
+
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install pinned requirements (CPU-only PyTorch)
+        run: pip install --extra-index-url https://download.pytorch.org/whl/cpu -r requirements.txt
+      - name: pytest (C++/Python equivalence against the committed reference files)
+        run: python -m pytest -q tests
+      - name: C++/Python equivalence against freshly generated reference files
+        run: |
+          make reference
+          python -m pytest -q tests/test_estimators.py tests/test_injector.py
+      - name: Synthetic demo (every analysis script end to end)
+        run: python analysis/demo/run_demo.py --small
+
+  firmware:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/cache@v4
+        with:
+          path: ~/.platformio
+          key: pio-${{ hashFiles('platformio.ini') }}
+      - name: Install PlatformIO Core
+        run: pip install platformio==6.2.0
+      - name: Build both firmware variants
+        run: pio run
